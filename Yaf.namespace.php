@@ -1816,6 +1816,8 @@ namespace Yaf
          * @return Request_Abstract
          */
         public function setRouted(){}
+
+        public function getPost(){}
     }
 
     /**
