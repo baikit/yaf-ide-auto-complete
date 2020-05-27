@@ -246,9 +246,9 @@ namespace Yaf
          * (Yaf >= 2.2.9)
          * 获取在配置文件中声明的模块，如果没有声明，它的默认值将是"Index".
          *
-         * @return String
+         * @return array
          */
-        public function getModules(){}
+        public function getModules():array {}
         /**
          * (Yaf >= 2.2.9)
          * 设置应用的主目录
@@ -1625,7 +1625,7 @@ namespace Yaf
          *
          * @return mixed
          */
-        public function getServer($name, $default = null){}
+        public function getServer($name = '', $default = null){}
 
         /**
          * (Yaf >= 2.2.9)
@@ -1817,7 +1817,9 @@ namespace Yaf
          */
         public function setRouted(){}
 
-        public function getPost(){}
+        public function getPost($name = null, $default = null):mixed{}
+
+//        public function getQuery(string $name ):mixed{}
     }
 
     /**
@@ -1957,11 +1959,11 @@ namespace Yaf
          * (Yaf >= 2.2.9)
          * 获取响应报头
          *
-         * @deprecated 总是返回null
+         * @deprecated 总是返回void
          *
-         * @return null
+         * @return void
          */
-        public function getHeader(){}
+        public function getHeader():void{}
 
         /**
          * (Yaf >= 2.2.9)
@@ -2813,6 +2815,7 @@ namespace Yaf\Request
         const SCHEME_HTTP  = 'http';
         const SCHEME_HTTPS = 'https';
 
+
         /**
          * (Yaf >= 2.2.9)
          * 构造方法
@@ -2851,7 +2854,7 @@ namespace Yaf\Request
          *
          * @return mixed
          */
-        public function getPost($name = null, $default = null){}
+        public function getPost($name = null, $default = null):mixed{}
 
         /**
          * (Yaf >= 2.2.9)
@@ -2891,6 +2894,17 @@ namespace Yaf\Request
          * @return mixed
          */
         public function get($name, $default = null){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取服务器$_SERVER全局变量中的值
+         *
+         * @param string $name 变量名
+         * @param mixed $default 默认值
+         *
+         * @return mixed
+         */
+        public function getServer($name = '', $default = null){}
 
         /**
          * (Yaf >= 2.2.9)
